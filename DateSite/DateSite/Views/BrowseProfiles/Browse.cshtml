@@ -1,0 +1,74 @@
+﻿@model List<Repositories.Profiles>
+
+@{
+    ViewBag.Title = "Browse Profiles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/browseStyle.css");
+
+}
+
+@{ 
+    var profiles = (List<String>) ViewData["Profiles"];
+}
+
+<div class="container">
+    <h1>Browse Profiles</h1>
+    
+    <div id="filter-profiles">
+        <div class="row">
+
+            <div class="col-md-4">
+                <ul class="list-unstyled list-group filter-box">
+                    <li><p>Age</p></li>
+                    <li><p>
+                            <div class="form-group">
+                                <select class="form-control" id="from">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <p>-</p>
+                            <div class="form-group">
+                                <select class="form-control" id="to">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4">
+                <ul class="list-unstyled list-group filter-box">
+                    <li><p>Gender</p></li>
+                    <li><p>Age</p></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4">
+                <ul class="list-unstyled list-group filter-box">
+                    <li><p>Location</p></li>
+                    <li><p>Age</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="profiles">
+    @foreach (var i in Model)
+    {
+        @i.Firstname <br />
+        @i.Email <br />
+        <br />
+    }
+</div>
