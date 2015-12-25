@@ -22,8 +22,19 @@
 
 .form-group{
     margin: 0 auto;
-    width: 60px;
     text-align: center;
+}
+
+.form-group-age{
+        width: 60px;
+}
+
+.form-group-gender{
+        width: 100px;
+}
+
+.form-group-location{
+        width: 160px;
 }
 
 #from{
