@@ -21,21 +21,22 @@
                 <ul class="list-unstyled list-group filter-box">
                     <li><p>Age</p></li>
                     <li><p>
-                            <div class="form-group">
+                            <div class="form-group form-group-age">
                                 <select class="form-control" id="from">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                                    
+                                    @for (int i = 0; i < 100; i++)
+                                    {
+                                        <option>@i</option>
+                                    }
                                 </select>
                             </div>
                             <p>-</p>
-                            <div class="form-group">
+                            <div class="form-group form-group-age">
                                 <select class="form-control" id="to">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                                    @for (int i = 0; i < 100; i++)
+                                    {
+                                        <option>@i</option>
+                                    }
                                 </select>
                             </div>
                         </p>
@@ -47,7 +48,14 @@
             <div class="col-md-4">
                 <ul class="list-unstyled list-group filter-box">
                     <li><p>Gender</p></li>
-                    <li><p>Age</p></li>
+                    <li>
+                        <div class="form-group form-group-gender">
+                            <select class="form-control" id="to">
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
@@ -55,7 +63,13 @@
             <div class="col-md-4">
                 <ul class="list-unstyled list-group filter-box">
                     <li><p>Location</p></li>
-                    <li><p>Age</p></li>
+                    <li>
+                        <div class="form-group form-group-location">
+                            <select class="form-control" id="to">
+                                <option>Male</option>
+                            </select>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
