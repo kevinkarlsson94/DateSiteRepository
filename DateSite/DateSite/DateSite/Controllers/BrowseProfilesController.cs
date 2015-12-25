@@ -19,6 +19,7 @@ namespace DateSite.Controllers
         {
 
             var userList = _usersRepository.fetchProfiles();
+            var countryList = reader.getCountries();
             return View(userList);
         }
     }
