@@ -1,4 +1,4 @@
-﻿@model List<Repositories.Profiles>
+﻿@model DateSite.Models.BrowseModel
 
 @{
     ViewBag.Title = "Browse Profiles";
@@ -7,9 +7,10 @@
 
 }
 
-@{ 
-    var profiles = (List<String>) ViewData["Profiles"];
-}
+@*
+    @{
+        var profiles = (List<String>) ViewData["Profiles"];
+    }*@
 
 <div class="container">
     <h1>Browse Profiles</h1>
@@ -20,26 +21,35 @@
             <div class="col-md-4">
                 <ul class="list-unstyled list-group filter-box">
                     <li><p>Age</p></li>
-                    <li><p>
+                    <li>
+                        <div class="age-selector">
+                                <div class="form-group form-group-age">
+                                    <select class="form-control" id="from">
+
+                                        @for (int i = 0; i < 100; i++)
+                                        {
+                                            <option>@i</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                        <div class="age-selector"><p>-</p></div>
+
+                        <div class="age-selector">
                             <div class="form-group form-group-age">
                                 <select class="form-control" id="from">
-                                    
+
                                     @for (int i = 0; i < 100; i++)
                                     {
                                         <option>@i</option>
                                     }
                                 </select>
                             </div>
-                            <p>-</p>
-                            <div class="form-group form-group-age">
-                                <select class="form-control" id="to">
-                                    @for (int i = 0; i < 100; i++)
-                                    {
-                                        <option>@i</option>
-                                    }
-                                </select>
-                            </div>
-                        </p>
+                        </div>
+                        
+                            
+
                     </li>
                 </ul>
             </div>
@@ -66,7 +76,10 @@
                     <li>
                         <div class="form-group form-group-location">
                             <select class="form-control" id="to">
-                                <option>Male</option>
+                                @foreach (var i in Model.countries)
+                                {
+                                    <option>@i.ToString()</option>
+                                }
                             </select>
                         </div>
                     </li>
@@ -78,11 +91,25 @@
 </div>
 
 
-<div id="profiles">
-    @foreach (var i in Model)
-    {
-        @i.Firstname <br />
-        @i.Email <br />
-        <br />
-    }
+<div class="row">
+    <div class="col-md-2 sides"></div>
+    <div class="col-md-8">
+
+        <div class="row">
+            @foreach (var i in Model.profiles)
+            {
+                <div class="col-md-2 profile">
+                    <p>@i.Firstname</p>
+                    <p>@i.Lastname</p>
+                    <p>@i.Gender</p>
+                    <p>@i.Age</p>
+                    <p>@i.Email</p>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="col-md-2 sides"></div>
 </div>
+
+

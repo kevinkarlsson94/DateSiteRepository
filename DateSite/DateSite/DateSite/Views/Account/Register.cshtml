@@ -1,41 +1,86 @@
-﻿@model DateSite.Models.RegisterViewModel
+﻿
 @{
     ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/registerStyle.css");
 }
 
-<h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+        <h1>Register</h1>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="form-layout col-md-12">
+    @using (Html.BeginForm())
+    {
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                @Html.Label("Username")<br />
+                @Html.TextBox("Username")<br />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Password")<br />
+                @Html.TextBox("Password")<br />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Firstname")<br />
+                @Html.TextBox("Firstname")<br />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Lastname")<br />
+                @Html.TextBox("Lastname")<br />
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                @Html.Label("Email")<br />
+                @Html.TextBox("Email")<br />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Gender")<br />
+                @Html.TextBox("Gender")<br />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Age")<br />
+                @Html.TextBox("Age")<br />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Location")<br />
+                @Html.TextBox("Location")<br />
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    @Html.Label("About")<br />
+                    @Html.TextBox("About")<br />
+                </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <button type="submit">Submit</button>
+            </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-2"></div>
+        </div>
+    }
+
+</div>

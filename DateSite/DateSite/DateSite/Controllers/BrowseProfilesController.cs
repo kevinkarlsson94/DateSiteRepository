@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Repositories;
 using DateSite.Functions;
+using DateSite.Models;
 
 namespace DateSite.Controllers
 {
@@ -17,10 +18,10 @@ namespace DateSite.Controllers
         // GET: BrowseProfiles
         public ActionResult Browse()
         {
-
-            var userList = _usersRepository.fetchProfiles();
-            var countryList = reader.getCountries();
-            return View(userList);
+            BrowseModel browseData = new BrowseModel();
+            browseData.profiles = _usersRepository.fetchProfiles();
+            browseData.countries = reader.getCountries();
+            return View(browseData);
         }
     }
 }
