@@ -24,7 +24,7 @@ namespace DateSite.Controllers
 
             Profiles profile = new Profiles();
             profile.Username = username;
-            profile.Password = password;
+            profile.Pass = password;
             profile.Firstname = firstname;
             profile.Lastname = lastname;
             profile.Gender = gender;
@@ -32,7 +32,6 @@ namespace DateSite.Controllers
             profile.Location = location;
             profile.About = about;
             profile.Email = email;
-            profile.Id = 3020;
     
 
             _usersRepository.insertUser(profile);
