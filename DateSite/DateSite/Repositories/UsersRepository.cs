@@ -28,12 +28,20 @@ namespace Repositories
         /// </summary>
         public void insertUser(Profiles profile)
         {
-            using (var context = new UserDBEntities())
+            try
             {
-                context.Database.Connection.Open();
-                context.Profiles.Add(profile);
-                context.SaveChanges();
+                using (var context = new UserDBEntities())
+                {
+                    context.Database.Connection.Open();
+                    context.Profiles.Add(profile);
+                    context.SaveChanges();
+                }
             }
+            catch(Exception e)
+            {
+                
+            }
+
         }
     }
 }

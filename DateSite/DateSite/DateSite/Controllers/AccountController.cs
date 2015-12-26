@@ -19,15 +19,21 @@ namespace DateSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(string name, string firstname, string lastname)
+        public ActionResult Register(string username, string password, string firstname, string lastname, string email, string gender, string age, string location, string about)
         {
 
             Profiles profile = new Profiles();
+            profile.Username = username;
+            profile.Password = password;
             profile.Firstname = firstname;
             profile.Lastname = lastname;
-            profile.Gender = "Male";
-            profile.Age = 22;
-            profile.Id = 555;
+            profile.Gender = gender;
+            profile.Age = Int32.Parse(age);
+            profile.Location = location;
+            profile.About = about;
+            profile.Email = email;
+            profile.Id = 3020;
+    
 
             _usersRepository.insertUser(profile);
 
